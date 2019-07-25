@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Contact Directory</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/module.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/factory/factory.js"></script>
+    <script src="js/controller/controller.js"></script>
+</head>
+<body ng-app="appmodule" ng-controller="appCtrl" style = "background-image: url('https://images.template.net/wp-content/uploads/2014/10/background-webdesign-patterns.jpg'); background-size: 100%">
+        
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+       <a style=font-family:calibri; class="navbar-brand" href="#"><font color="black"><h1>Contact Directory</h1></font></a>
+        </nav>
+      <br>
+      <div class=" table-responsive" data-ng-init="onLoadFun()" >
+        <table class="table container" style="width: 100%; height: 100%;">
+          <tr >
+            <td><input ng-model="details.name" required type="text" placeholder="Enter Name" class="form-control"></td>
+            <td><input required name="mobile_number" ng-model="details.contact" type="number" placeholder="Enter Number" class="form-control">
+              
+            </td>
+            <td><button class="btn btn-primary mr-2" ng-click="doCreateContact()">Create New Contact</button></td></tr>
+            <tr><td><br><br><a href="update.html" class="btn btn-primary" role="button">Update contact</a></td></tr>
+            
+            
+          </tr>
+          <table class="table container" style="width: 100%; height: 100%;">
+            <tr>
+              <td><span><strong><font color="white">Select name</font></strong></span></td>
+              <td>
+                  
+                  <select class="form-control" ng-model="select.name">
+                  <option ng-repeat="x in data.data.message track by $index">{{x.name}}</option>
+                  </select>
+              </td>
+              <td><button class="btn btn-primary mr-2" ng-click="doDeleteContact()">Delete Contact</button></td>
+            </tr>
+          </table>
+        </table>
+        <table class="table container" style="width: 100%; height: 100%;">
+            <tr>
+                <td><span class="col-sm-6"><strong><font color="white">NAME</font></strong></span></td>
+                <td><span class="col-sm-6"><strong><font color="white">CONTACT</font></strong></span></td>
+              </tr>
+          <tr ng-repeat="x in data.data.message track by $index">
+            <td><span class="col-sm-6" >{{x.name}}</span></td>
+            <td><span class="col-sm-6" >{{x.contact}}</span><span class="sr-only">(current)</span>
+          </tr>
+          
+        </table>
+        
+        <!-- <div class="navbar navbar-expand-lg navbar-light bg-light">            
+                <div class="bg-light navbar-brand" >
+                    <span  ng-repeat="right in rights track by $index">{right.name}}</span>
+                    <span  ng-repeat="right in rights track by $index">{right.contact}}</span>
+                    <span class="text-right">
+                    <button class="btn btn-primary mr-4 ">Update</button><button class="btn btn-primary mr-4">Delete</button>
+                   </span>                                                   
+                    <ul class="nav flex-column">
+                        <li class="form-control " ng-repeat="right in rights track by $index">
+                            <a  ng-href="{{right.url}}">
+                                <span data-feather="home"></span> {{right.name}} 
+                                <span data-feather="home"></span>{{right.contact}}
+                            </a>
+                        </li>                        
+                    </ul>
+                <!-- </div> -->                  
+        <!-- </div> --> 
+    </div>
+</body>
+</html>

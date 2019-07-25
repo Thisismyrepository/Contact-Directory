@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Update Contact</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/module.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/factory/factory.js"></script>
+    <script src="js/controller/controller.js"></script>
+</head>
+<body ng-app="appmodule" ng-controller="appCtrl" data-ng-init="onLoadFun()" style = "background-image: url('https://images.template.net/wp-content/uploads/2014/10/background-webdesign-patterns.jpg'); background-size: 100%" >
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a style=font-family:calibri; class="navbar-brand" href="#"><font color="black"><h1>Update Contact</h1></font></a>
+                </nav>
+
+                <div class="container">
+                    <br>
+                    <span><strong><font color="white">Select name</font></strong></span>
+                    <select class="form-control" ng-model="selected.name">
+                    <option ng-repeat="x in data.data.message track by $index">{{x.name}}</option>
+                    </select>
+                    <br>
+                    <input ng-model="selected.newName" class="form-control" type="text" placeholder="Enter new name">
+                    <br>
+                    <input ng-model="selected.newContact" class="form-control" type="text" placeholder="Enter new contact">
+                    <br>
+                    <button class="btn btn-primary" ng-click="doUpdate()"><font color="white">Update</font></button>
+                </div>
+    
+</body>
+</html>
